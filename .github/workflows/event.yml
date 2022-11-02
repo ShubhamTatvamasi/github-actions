@@ -1,4 +1,4 @@
-name: Event
+name: Event and Release
 
 on:
   release:
@@ -13,11 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Event
-        run: echo Hello
+        run: echo ${{ github.ref }}
 
-  release-job:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'release' && github.event.action == 'created'
-    steps:
-      - name: Event
-        run: echo World
+      - name: Release
+        if: github.event_name == 'release' && github.event.action == 'created'
+        run: echo ${{ github.ref }}
