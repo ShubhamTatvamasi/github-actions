@@ -1,0 +1,16 @@
+name: Event
+
+on:
+  push:
+    branches:
+      - 'master'
+    tags:
+      - '*'
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Event
+        run: |
+          echo {{ github.event }}
