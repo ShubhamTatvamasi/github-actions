@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Event
-        run: echo ${{ github.ref }}
+        run: echo ${{ github.ref_name }}
 
       - name: Release
         if: github.event_name == 'release' && github.event.action == 'created'
-        run: echo ${{ github.ref }}
+        run: echo ${{ github.ref_name }}
